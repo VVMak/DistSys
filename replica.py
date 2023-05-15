@@ -34,6 +34,19 @@ def get_request():
 @app.route('/update', methods=('POST'))
 def update_request():
     d = flask.request.json
+    # if we are master, run broadcast
+    # if there is no master, choose master
+    # then try to send to master
+    # if couldn't manage, choose master e.t.c.
     return 'Not implemented', 403
+
+@app.route('/master_update', methods=('POST'))
+def update_from_master():
+    d = flask.request.json
+    return 'Not implemented', 403
+
+@app.route('/election', methods=('POST'))
+def election():
+    pass
 
 app.run(host='0.0.0.0', port=PORT)
